@@ -1,6 +1,6 @@
 .awesome-courses {
-  padding: 3rem 5rem;
-  background: linear-gradient(to bottom, #f9f9ff, #fff);
+  padding: 3rem 0rem;
+
 }
 
 .section-title {
@@ -160,4 +160,71 @@
   margin-bottom: 1rem;
   object-fit: cover;
   max-height: 160px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.modal-box h3 {
+  margin-bottom: 1rem;
+  color: #111340;
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: 25%;
+}
+
+.btn-modal {
+  background-color: #6e4cff;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.btn-close {
+  background: none;
+  color: #666;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
 }

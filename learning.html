@@ -19,6 +19,34 @@
     <link rel="stylesheet" href="assets/css/learning.css">
 </head>
 
+<!-- MODALE D’ACCÈS PREMIUM -->
+<div class="modal-overlay" id="premiumModal">
+  <div class="modal-box">
+    <h3>Accedez à ce contenu à 10000f 🔒</h3>
+    <form id="premiumForm">
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" name="nom" required>
+      </div>
+      <div class="form-group">
+        <label>Prénom</label>
+        <input type="text" name="prenom" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label>Numéro</label>
+        <input type="tel" name="numero" required>
+      </div>
+      <button type="submit" class="btn-modal">Valider</button>
+    </form>
+    <button class="btn-close" onclick="closeModal()">Fermer</button>
+  </div>
+</div>
+
+
 <body class="tmp-white-version color-primary-3rd">
 
     <div id="loading-screen">
@@ -46,7 +74,7 @@
                                     <a href="index.html">Accueil</a>
                                 </li>
                                 <li>
-                                    <a href="#influencer">Trouver un influenceur</a>
+                                    <a href="index.html#influencer">Trouver un influenceur</a>
                                 </li>
                                 <li><a href="#">Media Kit/Portfolio</a></li>
                                 <li><a href="learning.html">Sessions d'apprentissage</a></li>
@@ -57,24 +85,7 @@
                             </ul>
 
                         </nav>
-                        <div class="tmp-header-right">
-                            <!-- <div class="social-share-wrapper d-none d-md-block">
-                                <div class="social-link">
-                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                </div>
-                            </div> -->
-                            <div class="actions-area">
-                                <div class="tmp-side-collups-area d-none d-xl-block">
-                                    <button class="tmp-menu-bars tmp_button_active"><i class="fa-regular fa-bars-staggered"></i></button>
-                                </div>
-                                <div class="tmp-side-collups-area d-block d-xl-none">
-                                    <button class="tmp-menu-bars humberger_menu_active"><i class="fa-regular fa-bars-staggered"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -152,66 +163,59 @@
         </div>
     </div>
 
-    <div class="tmp-banner-one-area">
+    <div class="tmp-banner-one-area tmp-grit">
         <div class="container">
             <div class="banner-one-main-wrapper">
-                <div class="row align-items-center presentation">
-                    <div class="col-lg-6 order-lg-1">
-                        
+                <section class="awesome-courses">
+                    <h2 class="section-title">📚 Sessions d’apprentissage</h2>
+
+                    <!-- Section cours gratuits -->
+                    <div class="course-category">
+                        <h3 class="category-title">✅ Cours Gratuits</h3>
+                        <div class="course-grid">
+
+                        <div class="course-card free">
+                            <div class="course-badge">Gratuit</div>
+                            <img src="assets/images/testimonial/raiba.png" alt="PDF media kit" class="course-thumbnail">
+                            <h3>Les bases d’un media kit</h3>
+                            <p class="tags">📊 Statistiques · 🎯 Positionnement</p>
+                            <p class="desc">Un media kit te permet de convaincre une marque grâce à tes chiffres et ton
+                                    identité. Tu ne sais pas ce que c’est ? Découvre-le ici.</p>
+                            <a href="assets/images/testimonial/raiba.png" class="btn-action" download>Télécharger</a>
+                        </div>
+
+                        </div>
                     </div>
-                </div>
+
+                    <!-- Section cours premium -->
+                    <div class="course-category">
+                        <h3 class="category-title">🔥 Cours Premium</h3>
+                        <div class="course-grid">
+
+                        <div class="course-card premium">
+                            <div class="course-badge">Premium</div>
+                            <img src="assets/images/testimonial/raiba.png" alt="Vidéo stratégie" class="course-thumbnail">
+                            <h3>Créer une stratégie sur 30 jours</h3>
+                            <p class="tags">🗓️ Planification · 📈 Stratégie · 📲 Réseaux</p>
+                            <p class="desc">Planifie ton contenu comme un pro avec nos outils interactifs.</p>
+                            <a href="assets/images/video/fitness.mp4" class="btn-action locked" onclick="openModal(); return false;" download>🔓 Télécharger</a>
+                        </div>
+
+                        <div class="course-card premium">
+                            <div class="course-badge">Premium</div>
+                            <img src="assets/images/testimonial/raiba.png" alt="PDF Pitch" class="course-thumbnail">
+                            <h3>Pitcher une marque comme un pro</h3>
+                            <p class="tags">🗣️ Présentation · 💼 Professionnalisation</p>
+                            <p class="desc">Découvre les techniques concrètes pour convaincre efficacement.</p>
+                            <a href="assets/images/testimonial/raiba.png" class="btn-action locked"  onclick="openModal(); return false;" download>🔓 Télécharger</a>
+                        </div>
+
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
-
-    <section class="awesome-courses">
-        <h2 class="section-title">📚 Sessions d’apprentissage</h2>
-
-        <!-- Section cours gratuits -->
-        <div class="course-category">
-            <h3 class="category-title">✅ Cours Gratuits</h3>
-            <div class="course-grid">
-
-            <div class="course-card free">
-                <div class="course-badge">Gratuit</div>
-                <img src="assets/images/testimonial/raiba.png" alt="PDF media kit" class="course-thumbnail">
-                <h3>Les bases d’un media kit</h3>
-                <p class="tags">📊 Statistiques · 🎯 Positionnement</p>
-                <p class="desc">Un media kit te permet de convaincre une marque grâce à tes chiffres et ton
-identité. Tu ne sais pas ce que c’est ? Découvre-le ici.</p>
-                <a href="assets/images/testimonial/raiba.png" class="btn-action" download>Télécharger</a>
-            </div>
-
-            </div>
-        </div>
-
-        <!-- Section cours premium -->
-        <div class="course-category">
-            <h3 class="category-title">🔥 Cours Premium</h3>
-            <div class="course-grid">
-
-            <div class="course-card premium">
-                <div class="course-badge">Premium</div>
-                <img src="assets/images/testimonial/raiba.png" alt="Vidéo stratégie" class="course-thumbnail">
-                <h3>Créer une stratégie sur 30 jours</h3>
-                <p class="tags">🗓️ Planification · 📈 Stratégie · 📲 Réseaux</p>
-                <p class="desc">Planifie ton contenu comme un pro avec nos outils interactifs.</p>
-                <a href="assets/images/video/fitness.mp4" class="btn-action locked" onclick="showLockedAlert(); return false;" download>🔓 Télécharger</a>
-            </div>
-
-            <div class="course-card premium">
-                <div class="course-badge">Premium</div>
-                <img src="assets/images/testimonial/raiba.png" alt="PDF Pitch" class="course-thumbnail">
-                <h3>Pitcher une marque comme un pro</h3>
-                <p class="tags">🗣️ Présentation · 💼 Professionnalisation</p>
-                <p class="desc">Découvre les techniques concrètes pour convaincre efficacement.</p>
-                <a href="assets/images/testimonial/raiba.png" class="btn-action locked"  onclick="showLockedAlert(); return false;" download>🔓 Télécharger</a>
-            </div>
-
-            </div>
-        </div>
-    </section>
-
 
 
     <!-- Start Footer Area  -->
@@ -1414,7 +1418,7 @@ identité. Tu ne sais pas ce que c’est ? Découvre-le ici.</p>
     <script src="assets/js/plugins/text-type.js"></script>
     <!-- custom Js -->
     <script src="assets/js/main.js"></script>
-    
+
 
 </body>
 

@@ -861,10 +861,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function showLockedAlert() {
   Swal.fire({
-    icon: 'error',
-    title: 'Session verrouillée 🔒',
-    text: 'Cette session est réservée aux membres premium. Veuillez l’acheter pour y accéder.',
+    icon: 'success',
+    title: 'Contenu payée 🔒',
+    text: 'Merci ! Nous enverrons votre contenu par mail',
     confirmButtonText: 'Compris',
     confirmButtonColor: '#6e4cff'
   });
 }
+
+function openModal() {
+  document.getElementById('premiumModal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('premiumModal').style.display = 'none';
+}
+
+document.getElementById('premiumForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  closeModal();
+  showLockedAlert();
+});
+
+window.addEventListener('scroll', function () {
+    const influencerSection = document.querySelector('#influencer');
+    const menuLink = document.getElementById('menu-influencer');
+
+    const sectionTop = influencerSection.offsetTop;
+    const sectionHeight = influencerSection.offsetHeight;
+    const scrollY = window.scrollY + 100; // décalage pour prendre en compte le header
+
+    if (scrollY >= sectionTop && scrollY <= sectionTop + sectionHeight) {
+      menuLink.classList.add('active');
+    } else {
+      menuLink.classList.remove('active');
+    }
+  });
