@@ -857,3 +857,14 @@ document.addEventListener("DOMContentLoaded", function() {
   // This ensures the page will display even if the video fails to load or play
   setTimeout(hideLoadingScreen, 5000);
 });
+
+
+function showLockedAlert() {
+  Swal.fire({
+    icon: 'error',
+    title: 'Session verrouillée 🔒',
+    text: 'Cette session est réservée aux membres premium. Veuillez l’acheter pour y accéder.',
+    confirmButtonText: 'Compris',
+    confirmButtonColor: '#6e4cff'
+  });
+}

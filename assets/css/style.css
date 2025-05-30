@@ -11187,7 +11187,7 @@ header.header-full-width.header--sticky.sticky {
   display: flex;
   align-items: center;
   padding: 0;
-  margin: 0;
+  margin-left: 5rem;
 }
 .tmp-mainmenu-nav .tmp-mainmenu > li > a {
   color: var(--color-heading);
@@ -27273,3 +27273,15 @@ body.tmp-white-version.color-primary-3rd .services-widget.v2 .active-bg {
   color: #444;
   line-height: 1.4;
 }
+
+.humberger_menu {
+  display: none;
+}
+
+/* Afficher le hamburger uniquement en dessous de 1199px */
+@media (max-width: 1199px) {
+  .humberger_menu {
+    display: block;
+  }
+}
+
