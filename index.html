@@ -34,7 +34,7 @@
                 <div class="col-lg-12">
                     <div class="header-content">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="index-white.html">
                                 <img class="logo-dark" src="assets/images/visual/logosm.png"  alt="Reeni - Personal Portfolio HTML Template for developers and freelancers">
                                 <img class="logo-white" src="assets/images/visual/logosm.png" alt="Reeni - Personal Portfolio HTML Template for developers and freelancers">
                             </a>
@@ -42,21 +42,37 @@
                         <nav class="tmp-mainmenu-nav d-none d-xl-block">
                             <ul class="tmp-mainmenu">
                                 <li>
-                                    <a href="index.html">Accueil</a>
+                                    <a href="index.html">Accueil
+                                    </a>
+                                    
                                 </li>
                                 <li>
-                                    <a href="#influencer" id="menu-influencer">Trouver un influenceur</a>
+                                    <a href="#influencer" id="menu-influencer">Influenceur</a>
                                 </li>
-                                <li><a href="#">Media Kit/Portfolio</a></li>
-                                <li><a href="learning.html">Sessions d'apprentissage</a></li>
-                                <li><a href="#">Annonces</a></li>
+                                <li class="has-dropdown">
+                                    <a href="#">Création
+                                        <i class="fa-regular fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li><a href="#mediakit">Médiakit</a></li>
+                                        <li><a href="#portfolio">Portfolio</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-dropdown">
+                                    <a href="#">Apprendre
+                                        <i class="fa-regular fa-chevron-down"></i>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li><a href="learning.html">Ebook</a></li>
+                                        <li><a href="learning.html">Vidéo</a></li>
+                                    </ul>
+                                </li>
                                 <li>
-                                    <a href="admin/html/auth-login-basic.html">Se Connecter</a>
+                                    <a href="annonces.html">Annonces</a>
                                 </li>
                             </ul>
 
                         </nav>
-                        
                     </div>
                 </div>
             </div>
@@ -141,16 +157,13 @@
                 <div class="row align-items-center presentation">
                     <div class="col-lg-6 order-lg-1">
                         <div class="inner">
-                            <span class="sub-title tmp-scroll-trigger tmp-fade-in animation-order-1">
-                                <h2>Bienvenue à #WeAre</h2> 
-                            </span>
                             <h1 class="title tmp-scroll-trigger tmp-fade-in animation-order-2">Connecter 
 
                                 <span class="header-caption">
                                     <span class="cd-headline clip is-full-width">
                                         <span class="cd-words-wrapper">
                                             <!-- <b class="is-visible theme-gradient">et</b> -->
-                                            <b class="is-visible theme-gradient">marques</b>
+                                            <b class="is-visible theme-gradient">marques et</b>
                                             <b class="is-visible theme-gradient">influenceurs</b>
                                         </span>
                                 </span>
@@ -229,6 +242,197 @@
     <!-- tmp Latest Portfolio Start -->
     <section id="influencer" class="tmp-portfolio-area tmp-section-gap">
         <div class="container">
+            <style>
+                /* Search Input Styles */
+                .search-container {
+                    margin: 30px 0;
+                    display: flex;
+                    justify-content: center;
+                }
+        
+                .search-input-wrapper {
+                    position: relative;
+                    max-width: 400px;
+                    width: 100%;
+                }
+        
+                .search-input {
+                    width: 100%;
+                    padding: 15px 50px 15px 20px;
+                    border: 2px solid #e1e5e9;
+                    border-radius: 25px;
+                    font-size: 16px;
+                    outline: none;
+                    transition: all 0.3s ease;
+                    background: #fff;
+                }
+        
+                .search-input:focus {
+                    border-color: #007bff;
+                    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+                }
+        
+                .search-icon {
+                    position: absolute;
+                    right: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: #6c757d;
+                    font-size: 18px;
+                }
+        
+                .clear-search {
+                    position: absolute;
+                    right: 50px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    color: #6c757d;
+                    cursor: pointer;
+                    font-size: 18px;
+                    display: none;
+                }
+        
+                .clear-search.show {
+                    display: block;
+                }
+        
+                /* No results message */
+                .no-results {
+                    text-align: center;
+                    padding: 40px;
+                    color: #6c757d;
+                    display: none;
+                }
+        
+                .no-results h3 {
+                    margin-bottom: 10px;
+                    color: #495057;
+                }
+        
+                /* Portfolio card styles (simplified for demo) */
+                .tmp-portfolio {
+                    margin-bottom: 30px;
+                    border: 1px solid #e1e5e9;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    transition: all 0.3s ease;
+                }
+        
+                .tmp-portfolio img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                }
+        
+                .portfolio-card-content-wrap {
+                    padding: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+        
+                .portfoli-card-para {
+                    color: #6c757d;
+                    margin: 0 0 5px 0;
+                    font-size: 14px;
+                }
+        
+                .portfolio-card-title {
+                    margin: 0;
+                    font-size: 18px;
+                }
+        
+                .portfolio-card-title a {
+                    text-decoration: none;
+                    color: #333;
+                }
+        
+                .row {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 0 -15px;
+                }
+        
+                .col-lg-4 {
+                    flex: 0 0 33.333333%;
+                    max-width: 33.333333%;
+                    padding: 0 15px;
+                }
+        
+                @media (max-width: 768px) {
+                    .col-lg-4 {
+                        flex: 0 0 50%;
+                        max-width: 50%;
+                    }
+                }
+        
+                @media (max-width: 576px) {
+                    .col-lg-4 {
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                    }
+                }
+                /* Custom SweetAlert styles */
+.swal2-popup {
+    width: 500px !important;
+    max-width: 90vw !important;
+}
+
+.form-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-control.error {
+    border-color: #dc3545;
+}
+
+.required {
+    color: #dc3545;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+            </style>
             <div class="section-head mb--60">
                 <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
                     <span class="subtitle">Trouver un influenceur</span>
@@ -236,6 +440,20 @@
                 <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2"> Trouver l'influenceur qui vous correspond </h2>
                 <!-- <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">Business consulting consultants provide expert advice and guida
                     businesses to help them improve their performance, efficiency, and organizational</p> -->
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <input 
+                            type="text" 
+                            class="search-input" 
+                            id="influencerSearch" 
+                            placeholder="Rechercher un influenceur... (ex: @ng.thecreator)"
+                        >
+                        <button class="clear-search" id="clearSearch" title="Effacer la recherche">
+                            ×
+                        </button>
+                        <i class="search-icon">🔍</i>
+                    </div>
+                </div>
             </div>
             <div class="latest-portfolio-tabs-area">
                 <nav>
@@ -259,8 +477,8 @@
                 </nav>
                 <div class="tab-content bg-blur-style-three" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab" tabindex="0">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="row" id="influencerGrid">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@ng.thecreator">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/1.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -281,7 +499,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@nessdieng">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/2.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -302,7 +520,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@jerry_ketounou">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/3.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -323,7 +541,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@ariel.omael_">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/4.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -344,7 +562,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@pamlagxba_">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/5.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -365,7 +583,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@its___riirii">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/6.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -386,7 +604,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@decouvre.bj">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/7.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -406,7 +624,7 @@
                                     <a href="https://www.instagram.com/decouvre.bj?igsh=YzltMGdsYWdxb2dn" class="over_link"></a>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@miwakpon">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/8.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -431,7 +649,7 @@
 
                     <div class="tab-pane fade" id="nav-branding" role="tabpanel" aria-labelledby="nav-branding-tab" tabindex="0">
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@ng.thecreator">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/1.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -452,7 +670,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-lg-4 col-md-6 col-sm-12 influencer-card" data-name="@nessdieng">
                                 <div class="tmp-portfolio tmp-scroll-trigger tmp-fade-in animation-order-1">
                                     <img src="assets/images/creator/2.png" alt="tab-image">
                                     <div class="portfolio-card-content-wrap">
@@ -612,6 +830,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="no-results" id="noResults">
+                        <h3>Aucun influenceur trouvé</h3>
+                        <p>Essayez de modifier votre recherche ou de parcourir tous les influenceurs.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -651,6 +873,142 @@
         </div>
     </section>
 
+    <div class="tpm-custom-box-bg">
+        <!-- Tpm Latest Portfolio Area Start -->
+        <div class="latest-portfolio-area custom-column-grid">
+            <div class="container">
+                <div class="section-head mb--60">
+                    <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
+                        <span class="subtitle">Commander un médiakit ou un portfolio</span>
+                    </div>
+                    <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">24 H pour avoir votre médiakit ou votre portfolio</h2>
+                    <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">Business
+                        consulting consultants provide expert advice and guida
+                        businesses to help them improve their performance, efficiency, and organizational</p>
+                </div>
+                <div id="mediakit" class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="latest-portfolio-card portfolio-order-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-1" 
+                             data-type="mediakit" data-title="Mediakit 1" data-category="Influenceur Fitness">
+                            <div class="portfoli-card-img">
+                                <div class="img-box v2">
+                                    <img class="img-primary hidden-on-mobile" src="assets/images/latest-portfolio/1.png" alt="Blog Thumbnail">
+                                    <img class="img-secondary" src="assets/images/latest-portfolio/1.png" alt="BLog Thumbnail">
+                                </div>
+                            </div>
+                            <div class="portfolio-card-content-wrap">
+                                <div class="content-left">
+                                    <h3 class="portfolio-card-title">Mediakit 1</h3>
+                                    <p class="portfoli-card-para">Influenceur Fitness</p>
+                                </div>
+                                <div class="tmp-arrow-icon-btn">
+                                    <div class="btn-inner">
+                                        <i class="tmp-icon fa-solid fa-arrow-up-right"></i>
+                                        <i class="tmp-icon-bottom fa-solid fa-arrow-up-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="latest-portfolio-card portfolio-order-card mt--100 mt_sm--0 mt_md--50 tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-1"
+                             data-type="mediakit" data-title="Mediakit 2" data-category="Influenceur Food">
+                            <div class="portfoli-card-img">
+                                <div class="img-box v2">
+                                    <img class="img-primary hidden-on-mobile" src="assets/images/latest-portfolio/2.png" alt="Blog Thumbnail">
+                                    <img class="img-secondary" src="assets/images/latest-portfolio/2.png" alt="BLog Thumbnail">
+                                </div>
+                            </div>
+                            <div class="portfolio-card-content-wrap">
+                                <div class="content-left">
+                                    <h3 class="portfolio-card-title">Mediakit 2</h3>
+                                    <p class="portfoli-card-para">Influenceur Food</p>
+                                </div>
+                                <div class="tmp-arrow-icon-btn">
+                                    <div class="btn-inner">
+                                        <i class="tmp-icon fa-solid fa-arrow-up-right"></i>
+                                        <i class="tmp-icon-bottom fa-solid fa-arrow-up-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="latest-portfolio-card portfolio-order-card mt--100 mt_sm--0 mt_md--50 tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-1"
+                             data-type="portfolio" data-title="Mon Portfolio" data-category="Mode">
+                            <div class="portfoli-card-img">
+                                <div class="img-box v2">
+                                    <img class="img-primary hidden-on-mobile" src="assets/images/latest-portfolio/4.png" alt="Blog Thumbnail">
+                                    <img class="img-secondary" src="assets/images/latest-portfolio/4.png" alt="BLog Thumbnail">
+                                </div>
+                            </div>
+                            <div class="portfolio-card-content-wrap">
+                                <div class="content-left">
+                                    <h3 class="portfolio-card-title">Mon Portfolio</h3>
+                                    <p class="portfoli-card-para">Mode</p>
+                                </div>
+                                <div class="tmp-arrow-icon-btn">
+                                    <div class="btn-inner">
+                                        <i class="tmp-icon fa-solid fa-arrow-up-right"></i>
+                                        <i class="tmp-icon-bottom fa-solid fa-arrow-up-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="latest-portfolio-card portfolio-order-card mt--100 mt_sm--0 mt_md--50 tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-1"
+                             data-type="portfolio" data-title="Mon Portfolio 2" data-category="Lifestyle">
+                            <div class="portfoli-card-img">
+                                <div class="img-box v2">
+                                    <img class="img-primary hidden-on-mobile" src="assets/images/latest-portfolio/3.png" alt="Blog Thumbnail">
+                                    <img class="img-secondary" src="assets/images/latest-portfolio/3.png" alt="BLog Thumbnail">
+                                </div>
+                            </div>
+                            <div class="portfolio-card-content-wrap">
+                                <div class="content-left">
+                                    <h3 class="portfolio-card-title">Mon Portfolio 2</h3>
+                                    <p class="portfoli-card-para">Lifestyle</p>
+                                </div>
+                                <div class="tmp-arrow-icon-btn">
+                                    <div class="btn-inner">
+                                        <i class="tmp-icon fa-solid fa-arrow-up-right"></i>
+                                        <i class="tmp-icon-bottom fa-solid fa-arrow-up-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="latest-portfolio-card portfolio-order-card mt--100 mt_sm--0 mt_md--50 tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-1"
+                             data-type="portfolio" data-title="Mon Portfolio 2" data-category="Lifestyle">
+                            <div class="portfoli-card-img">
+                                <div class="img-box v2">
+                                    <img class="img-primary hidden-on-mobile" src="assets/images/latest-portfolio/5.png" alt="Blog Thumbnail">
+                                    <img class="img-secondary" src="assets/images/latest-portfolio/5.png" alt="BLog Thumbnail">
+                                </div>
+                            </div>
+                            <div class="portfolio-card-content-wrap">
+                                <div class="content-left">
+                                    <h3 class="portfolio-card-title">Mon Portfolio 3</h3>
+                                    <p class="portfoli-card-para">Lifestyle</p>
+                                </div>
+                                <div class="tmp-arrow-icon-btn">
+                                    <div class="btn-inner">
+                                        <i class="tmp-icon fa-solid fa-arrow-up-right"></i>
+                                        <i class="tmp-icon-bottom fa-solid fa-arrow-up-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tpm Latest Portfolio Area End -->
+
+    </div>
 
     <!-- Start Footer Area  -->
     <footer class="footer-area footer-style-two-wrapper bg-color-footer bg_images tmp-section-gap">
@@ -1849,8 +2207,223 @@
     <script src="assets/js/vendor/backtop.js"></script>
     <script src="assets/js/plugins/text-type.js"></script>
     <!-- custom Js -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('influencerSearch');
+            const clearButton = document.getElementById('clearSearch');
+            const influencerCards = document.querySelectorAll('.influencer-card');
+            const noResults = document.getElementById('noResults');
 
+            // Search functionality
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                let hasVisibleCards = false;
+
+                influencerCards.forEach(card => {
+                    const influencerName = card.getAttribute('data-name').toLowerCase();
+                    const shouldShow = influencerName.includes(searchTerm);
+                    
+                    if (shouldShow) {
+                        card.style.display = 'block';
+                        hasVisibleCards = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show/hide no results message
+                noResults.style.display = hasVisibleCards ? 'none' : 'block';
+
+                // Show/hide clear button
+                clearButton.classList.toggle('show', searchTerm.length > 0);
+            }
+
+            // Clear search
+            function clearSearch() {
+                searchInput.value = '';
+                influencerCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                noResults.style.display = 'none';
+                clearButton.classList.remove('show');
+                searchInput.focus();
+            }
+
+            // Event listeners
+            searchInput.addEventListener('input', performSearch);
+            clearButton.addEventListener('click', clearSearch);
+
+            // Handle Enter key
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    clearSearch();
+                }
+            });
+        });
+    </script>
+    <script>
+        // Initialize EmailJS (You need to set up EmailJS account and get these IDs)
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const portfolioCards = document.querySelectorAll('.portfolio-order-card');
+        
+            portfolioCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const type = this.dataset.type;
+                    const title = this.dataset.title;
+                    const category = this.dataset.category;
+                    showOrderForm(type, title, category);
+                });
+            });
+        
+            function showOrderForm(type, title, category) {
+                Swal.fire({
+                    title: `Commander ${title}`,
+                    html: `
+                        <div style="text-align: left; max-height: 400px; overflow-y: auto;">
+                            <p style="text-align: center; margin-bottom: 20px; color: #666;">
+                                Catégorie: <strong>${category}</strong>
+                            </p>
+                            
+                            <div class="form-group">
+                                <label for="fullname">Nom complet <span class="required">*</span></label>
+                                <input type="text" id="fullname" class="form-control" placeholder="Votre nom complet">
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="email">Adresse email <span class="required">*</span></label>
+                                <input type="email" id="email" class="form-control" placeholder="votre@email.com">
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="instagram">Profil Instagram <span class="required">*</span></label>
+                                <input type="url" id="instagram" class="form-control" placeholder="https://instagram.com/votre-profil">
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="tiktok">Profil TikTok</label>
+                                <input type="url" id="tiktok" class="form-control" placeholder="https://tiktok.com/@votre-profil">
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="phone">Numéro de téléphone <span class="required">*</span></label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+229 XX XX XX XX">
+                            </div>
+                        </div>
+                    `,
+                    showCancelButton: true,
+                    confirmButtonText: 'Envoyer la commande',
+                    cancelButtonText: 'Annuler',
+                    confirmButtonColor: '#007bff',
+                    cancelButtonColor: '#6c757d',
+                    width: '500px',
+                    preConfirm: () => {
+                        const fullname = document.getElementById('fullname').value.trim();
+                        const email = document.getElementById('email').value.trim();
+                        const instagram = document.getElementById('instagram').value.trim();
+                        const tiktok = document.getElementById('tiktok').value.trim();
+                        const phone = document.getElementById('phone').value.trim();
+        
+                        // Reset previous error states
+                        document.querySelectorAll('.form-control').forEach(input => {
+                            input.classList.remove('error');
+                        });
+        
+                        let hasError = false;
+        
+                        // Validation
+                        if (!fullname) {
+                            document.getElementById('fullname').classList.add('error');
+                            hasError = true;
+                        }
+        
+                        if (!email || !isValidEmail(email)) {
+                            document.getElementById('email').classList.add('error');
+                            hasError = true;
+                        }
+        
+                        if (!instagram) {
+                            document.getElementById('instagram').classList.add('error');
+                            hasError = true;
+                        }
+        
+                        if (!phone) {
+                            document.getElementById('phone').classList.add('error');
+                            hasError = true;
+                        }
+        
+                        if (hasError) {
+                            Swal.showValidationMessage('Veuillez remplir tous les champs requis correctement');
+                            return false;
+                        }
+        
+                        return {
+                            fullname,
+                            email,
+                            instagram,
+                            tiktok,
+                            phone,
+                            type,
+                            title,
+                            category
+                        };
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        sendEmail(result.value);
+                    }
+                });
+            }
+        
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+        
+            function sendEmail(formData) {
+                // Show loading
+                Swal.fire({
+                    title: 'Envoi en cours...',
+                    html: '<div class="loading-spinner"></div>Envoi de votre commande',
+                    allowOutsideClick: false,
+                    showConfirmButton: false,
+                    willOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+        
+                // For now, simulate email sending and show success
+                // You'll need to set up EmailJS to actually send emails
+                setTimeout(() => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Commande envoyée avec succès!',
+                        html: `
+                            <p>Votre commande pour <strong>${formData.title}</strong> a été envoyée.</p>
+                            <p>Nous vous contacterons sous 24h à l'adresse: <strong>${formData.email}</strong></p>
+                            <hr>
+                            <div style="text-align: left; font-size: 12px; background: #f8f9fa; padding: 10px; border-radius: 5px;">
+                                <strong>Récapitulatif:</strong><br>
+                                • Produit: ${formData.title}<br>
+                                • Nom: ${formData.fullname}<br>
+                                • Instagram: ${formData.instagram}<br>
+                                • Téléphone: ${formData.phone}
+                            </div>
+                        `,
+                        confirmButtonText: 'Parfait!',
+                        confirmButtonColor: '#28a745'
+                    });
+                }, 2000);
+            }
+        });
+        </script>
 
 </body>
 
